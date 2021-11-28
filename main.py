@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as mpl
 import ga
 # Equação escolhida
-# Y = w1x1 + w2x2 + w3x3 + w4x4 + w5x5 + w6x6
-# (x1,x2,x3,x4,x5,x6) = (4,-2,3.5,5,-11,-4.7)
-# A equação possui 6 inputs e 6 pesos
+# Y = w1x1 + w2x2 + w3x3 + w4x4 + w5x5
+# (x1,x2,x3,x4,x5) = (6,-4,5.7,7,-13,-6.9)
+# A equação possui 5 inputs e 5 pesos
 
 # Entradas da equação
-entradas_eq = [4,-2,3.5,5,-11,-4.7] # [4,-2,3.5,5,-11]
+entradas_eq = [6,-4,5.7,7,-13,-6.9]
 
 # Número de pesos
 pesosQtd = len(entradas_eq) # Nesse caso 5 inputs
@@ -17,7 +17,7 @@ solPop = 8
 
 num_parents_mating = 4
 
-# Definindo o tamanho da população, pop terá solPop cromossomo que tera gene pesosQtd
+# Definindo o tamanho da população, pop terá solPop cromossomo que terá gene pesosQtd
 popTam = (solPop, pesosQtd)
 
 # Criando a pop inicial de forma aleatória
@@ -65,8 +65,8 @@ fitness = ga.cal_pop_fitness(entradas_eq, novaPop)
 # O retorno do index da solução correspondendo ao melhor fitness
 melhorIdx = np.where(fitness == np.max(fitness))
 
-print("Best solution : ", novaPop[melhorIdx, :])
-print("Best solution fitness : ", fitness[melhorIdx])
+print("Melhor Resultado : ", novaPop[melhorIdx, :])
+print("Melhor Resultado fitness : ", fitness[melhorIdx])
 
 mpl.plot(melhoresSaidas)
 mpl.xlabel("Iteration")
