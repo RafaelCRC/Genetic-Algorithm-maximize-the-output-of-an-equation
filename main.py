@@ -25,7 +25,7 @@ novaPop = np.random.uniform(low=-4.0, high=4.0, size=popTam)
 print(novaPop)
 
 melhoresSaidas = []
-numGeracoes = 5
+numGeracoes = 1000
 
 for generation in range(numGeracoes):
     print("Geração : ", generation)
