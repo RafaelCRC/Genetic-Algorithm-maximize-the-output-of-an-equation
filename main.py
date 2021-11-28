@@ -37,19 +37,21 @@ for generation in range(numGeracoes):
 
     melhoresSaidas.append(np.max(np.sum(novaPop*entradas_eq, axis=1)))
     # O melhor resultado na iteração atual
-    print("Best result : ", np.max(np.sum(novaPop*entradas_eq, axis=1)))
+    print("Melhor Resultado : ", np.max(np.sum(novaPop*entradas_eq, axis=1)))
 
     # Seleção dos melhores parentes da população para o acasalamento
     parents = ga.select_mating_pool(novaPop, fitness, num_parents_mating)
+    print("Parents")
+    print(parents)
 
     # Gerando próxima geração usando crossover
-    offspring_crossover = ga.crossover(parents, offspring_size=(novaPop[0]-parents.shape[0], pesosQtd))
+    offspring_crossover = ga.crossover(parents, offspring_size=(popTam[0]-parents.shape[0], pesosQtd))
     print("Crossover")
     print(offspring_crossover)
 
     # Adicionando algumas variações ao offspring usando mutação
-    offspring_mutation = ga.mutation(offspring_crossover)
-    print("Mutation")
+    offspring_mutation = ga.mutation(offspring_crossover, num_mutations=2)
+    print("Mutação")
     print(offspring_mutation)
 
     # Criar a nova população com base nos parentes e offspring
